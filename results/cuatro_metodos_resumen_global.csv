@@ -1,0 +1,5 @@
+﻿Metodo,Registros_con_senal,Mediciones_evaluadas,Porcentaje_con_senal
+Westgard,112,592,18.91891891891892
+Isolation_Forest,356,592,60.13513513513513
+EWMA,97,592,16.385135135135133
+CUSUM,182,592,30.743243243243246

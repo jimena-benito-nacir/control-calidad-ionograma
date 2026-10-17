@@ -1,0 +1,15 @@
+﻿numero_metodos_con_senal,metodos_con_senal,n_registros
+4,Westgard + Isolation Forest + EWMA + CUSUM,55
+3,Isolation Forest + EWMA + CUSUM,22
+3,Westgard + Isolation Forest + CUSUM,20
+3,Westgard + EWMA + CUSUM,7
+3,Westgard + Isolation Forest + EWMA,2
+2,Isolation Forest + CUSUM,41
+2,EWMA + CUSUM,9
+2,Westgard + Isolation Forest,9
+2,Westgard + CUSUM,4
+2,Isolation Forest + EWMA,2
+1,Isolation Forest,205
+1,CUSUM,24
+1,Westgard,15
+0,Sin señales,177
