@@ -45,7 +45,7 @@ Todos los números salen del notebook y se guardan en `results/`.
 
 **Errores simulados** (1.200 corridas por escenario):
 
-| Método | Falsas alarmas (% de mediciones estables) | Falsas alarmas por mes (Na, K y Cl) | Recall ante sesgo de 1,5 DE | Recall ante sesgo de 2 DE | AUC ante sesgo de 2 DE |
+| Método | Falsas alarmas (% de mediciones estables) | Mediciones estables señaladas por mes* (Na, K y Cl) | Recall ante sesgo de 1,5 DE | Recall ante sesgo de 2 DE | AUC ante sesgo de 2 DE |
 |---|---:|---:|---:|---:|---:|
 | Westgard | 1,8 % | 1,2 | 0,49 | 0,72 | 0,84 (\|z\|) |
 | Isolation Forest (por defecto) | 49,1 % | 30,9 | 0,77 | 0,88 | 0,81 |
@@ -56,9 +56,11 @@ Todos los números salen del notebook y se guardan en `results/`.
 
 ### Conclusión
 
-- **Isolation Forest no se recomienda** con esta configuración, de una única variable. Con el ajuste por defecto, señala la mitad de las mediciones estables (unas 31 falsas alarmas por mes). Con el ajuste al 5 %, pierde alrededor de la mitad de los episodios de sesgo, incluso de 3 DE, porque todo valor fuera del rango de entrenamiento recibe el mismo puntaje. Su AUC no supera la distancia a la media (|z|), que Westgard ya utiliza.
+- **Isolation Forest no se recomienda** con esta configuración, de una única variable. Con el ajuste por defecto, señala la mitad de las mediciones estables (unas 31 por mes en la simulación). Con el ajuste al 5 %, pierde alrededor de la mitad de los episodios de sesgo, incluso de 3 DE, porque todo valor fuera del rango de entrenamiento recibe el mismo puntaje que el extremo de la línea de base. Su AUC no supera la distancia a la media (|z|), que Westgard ya utiliza.
 - **Westgard se mantiene como regla principal.**
-- **CUSUM se selecciona como complemento candidato** para desvíos sostenidos pequeños. Obtuvo el mayor AUC en todos los escenarios y, ante un sesgo de 1,5 DE, reduce la proporción de mediciones con error no señaladas del 51 % (Westgard) al 22 % (Westgard + CUSUM), con unas 2 falsas alarmas mensuales adicionales. Se propone evaluarlo de forma prospectiva antes de su uso rutinario.
+- **CUSUM se selecciona como complemento candidato** para desvíos sostenidos pequeños. Obtuvo el mayor AUC en todos los escenarios. Ante un sesgo simulado de 1,5 DE, la proporción de mediciones con error no señaladas baja del 51 % (Westgard) al 22 % (Westgard + CUSUM), con unas 2 mediciones estables señaladas más por mes. Es una mejora de la detección simulada, no una reducción demostrada del riesgo para pacientes. Se propone evaluarlo de forma prospectiva antes de su uso rutinario.
+
+\* Número esperado de mediciones estables señaladas por mes (21 días hábiles × 3 analitos); no equivale a episodios independientes ni a repeticiones realizadas.
 
 Las tasas simuladas corresponden a condiciones favorables (distribución normal, líneas de base estables). No reemplazan una evaluación prospectiva con episodios documentados.
 
@@ -138,7 +140,7 @@ El detalle completo está en [`data_log.md`](data_log.md).
 - Un único equipo y nivel de control, con menos de tres años de datos.
 - Cada modelo de Isolation Forest se entrena con 20 mediciones por analito y pool.
 - La simulación supone mediciones independientes y normales y líneas de base estables; no reproduce los cambios de nivel observados en los datos reales.
-- Los beneficios operativos se expresan en falsas alarmas por mes; no se dispone del costo de cada repetición.
+- La carga operativa se expresa como mediciones estables señaladas por mes bajo la simulación, no como episodios ni repeticiones observadas; no se dispone del costo de cada repetición.
 
 El detalle se presenta en la sección 17 del notebook.
 

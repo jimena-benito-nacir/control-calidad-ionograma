@@ -22,7 +22,7 @@ Tablas y figuras generadas por la sección 19 del notebook. Se regeneran al ejec
 
 | Archivo | Contenido | Sección |
 |---|---|---|
-| `simulacion_falsas_alarmas.csv` | Falsas alarmas por medición, por corrida y por mes | 16.4 |
+| `simulacion_falsas_alarmas.csv` | Falsas alarmas por medición y por corrida, y mediciones estables señaladas esperadas por mes | 16.4 |
 | `simulacion_metricas_deteccion.csv` | Recall, precisión, F1, episodios detectados y mediciones hasta la señal | 16.5 |
 | `simulacion_auc.csv` | AUC-ROC de los puntajes continuos | 16.6 |
 | `fig_simulacion_errores.png` | Detección frente a falsas alarmas y según la magnitud del sesgo | 16.8 |
