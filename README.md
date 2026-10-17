@@ -1,4 +1,3 @@
-
 # Control de calidad interno del ionograma
 
 **Evaluación de Isolation Forest como complemento a las reglas de Westgard, con EWMA y CUSUM como referencias adicionales**
